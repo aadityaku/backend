@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import *
-urlpatterns = [
+from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework_simplejwt.views import (TokenObtainPairView,TokenRefreshView)
+urlpatterns = [ 
     path("",HomeView.as_view(),name="hello"),
     path("category/",CategoryView.as_view(),name="category"),
     path("subcategory/",SubCategoryView.as_view(),name="subcategory"),
@@ -10,4 +12,8 @@ urlpatterns = [
     path("my-order/",MyOrder.as_view(),name="myorder"),
     path("minus-cart/<slug>/",MinusQtyFromCard.as_view(),name="minus-qty"),
     path("remove-product/<slug>/",RemoveProduct.as_view(),name="remove"),
+    path('register-user/',Register.as_view(),name="register"),
+    path('login/',TokenObtainPairView.as_view(),name="login"),
+    path('login/regresh/',TokenRefreshView.as_view(),name="regresh"),
 ]
+url_patterns=format_suffix_patterns(urlpatterns)
