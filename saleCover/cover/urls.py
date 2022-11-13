@@ -10,10 +10,11 @@ urlpatterns = [
     path("product/<slug>/",ProductView.as_view(),name="product"),
     path("add-to-cart/<slug>/",AddToCart.as_view(),name="add-to-cart"),
     path("my-order/",MyOrder.as_view(),name="myorder"),
+    path("cart-list/",CartList.as_view(),name="cartlist"),
     path("minus-cart/<slug>/",MinusQtyFromCard.as_view(),name="minus-qty"),
     path("remove-product/<slug>/",RemoveProduct.as_view(),name="remove"),
     path('register-user/',Register.as_view(),name="register"),
     path('login/',TokenObtainPairView.as_view(),name="login"),
-    path('login/regresh/',TokenRefreshView.as_view(),name="regresh"),
+    path('login/refresh/',TokenRefreshView.as_view(),name="regresh"),
 ]
 url_patterns=format_suffix_patterns(urlpatterns)
