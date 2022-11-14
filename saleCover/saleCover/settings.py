@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-iqv2hcrkt4ke)=exbfnjzzvcz6nor+5s&_#kx84+_f#_u_sh)j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["ecom-aaditya.herokuapp.com","*"]
 
 
 # Application definition
@@ -89,9 +90,18 @@ WSGI_APPLICATION = 'saleCover.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd9qeqrh313okf1',
+        'USER': 'ofictqgafyjpqw',
+        'PASSWORD': 'f27fc271cc3c8f0877c81de0765d65457f3fba1b278a8f32a78fa059fe2efd8b',
+        'HOST': 'ec2-3-219-135-162.compute-1.amazonaws.com',
+        'PORT':"5432"
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    
 }
 
 
@@ -129,9 +139,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_ROOT=BASE_DIR/"media"
-MEDIA_URL="/media/"
+# STATIC_URL = 'static/'
+# MEDIA_ROOT=BASE_DIR/"media"
+# MEDIA_URL="/media/"
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_URL = "/static/"
+django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 SIMPLE_JWT = {
