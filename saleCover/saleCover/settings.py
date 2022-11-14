@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-iqv2hcrkt4ke)=exbfnjzzvcz6nor+5s&_#kx84+_f#_u_sh)j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["ecom-aaditya.herokuapp.com","*"]
 
@@ -144,7 +144,8 @@ USE_TZ = True
 # MEDIA_URL="/media/"
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = "/static/"
-django_heroku.settings(locals())
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 SIMPLE_JWT = {

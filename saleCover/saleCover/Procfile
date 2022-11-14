@@ -1,2 +1,1 @@
-release: python manage.py migrate
-web: guunicorn saleCover.wsgi --log-file=-
+web: gunicorn saleCover.wsgi --log-file -
