@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-iqv2hcrkt4ke)=exbfnjzzvcz6nor+5s&_#kx84+_f#_u_sh)j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["ecom-aaditya.herokuapp.com","*",'localhost']
+ALLOWED_HOSTS = ["ecom-aaditya.herokuapp.com",'localhost']
 
 
 # Application definition
@@ -59,7 +59,8 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'https://purnea-mobile-cover.herokuapp.com'
+    'https://purnea-mobile-cover.herokuapp.com',
+    'http://purnea-mobile-cover.herokuapp.com'
 ]
 REST_FRAMEWORK={
     "DEFAULT_FILTER_BACKENDS":["django_filters.rest_framework.DjangoFilterBackend"],
